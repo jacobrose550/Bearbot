@@ -10,6 +10,7 @@ import random
 #first run
 no_list = ["no","No","n","N","No thx", "no thx", "Ummm no", "ummm no"]
 yes_list = ["Yes","yes","Y","y","Yez","yez","Yeah","yeah"]
+bye_list = ["bye","Bye","bai","Bai","Byee","byee","cya","Cya","see ya", "See ya","see Ya","See you later", "see you later"]
 
 #age
 def ageask():
@@ -22,6 +23,7 @@ def ageask():
 #name and age
 name = input("What is your name?").capitalize()
 time.sleep(1)
+
 print("Hey "+ name + "!")
 time.sleep(1)
 ageask()
@@ -49,9 +51,9 @@ while True:
     request = input('You: ')
     response = chatbot.get_response(request)
 
-    if bot.confidence > 0.7:
+    if bot.confidence > 0.7:    #remove if dont work
         print('Bot: ' + response)
-    if bot.confidence < 0.7:
+    if bot.confidence < 0.7:    #remove if dont work
         print("Bot: Sorry, i don't quite understand.")
 
     print('Bot: ', response)
