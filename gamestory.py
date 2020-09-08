@@ -2,11 +2,12 @@ import time
 import random
 from random import randint
 from random import randrange
-###IMPORTANT !ij@io#uo!@i#y
+
 ##50 percent chance
 fifty_chance = randint(0,1)
 ##33 percent chance
 thirty_chance = randint(0,2)
+#lists
 items_in_class = ["Computer","Ladder","Printer"]
 yes_list = ["yes","Yes","Ye","ye","y","Y"]
 no_list = ["no","No","N","n"]
@@ -15,12 +16,17 @@ weapons_list = ["Bat","Knife","Hammer","Boulder","Rock","Jesus"]
 animals = ["Pig","Rat","Sheep","Snake","Chicken",]
 run_list = ["Run","run"]
 walk_list = ["walk","Walk"]
-rocktrip_finddoor = ["go back","Go Back","go Back","Go Back","GO BACK","find door","Find Door","find Door","Find Door","FIND DOOR","door","Door","find a door"]
+rocktrip_finddoor = ["go back","Go Back","go Back","Go Back","GO BACK","find another door","find door","Find Door","find Door","Find Door","FIND DOOR","door","Door","find a door"]
 rocktrip_keeprunning = ["keep running","Keep running","keep Running","Keep Running","KEEP RUNNING"]
 hit_door_open = ["hit","Door","Hit","door","hit door open","hit the door open",]
 subjects = ["art","english","digital science"]
 foward_list = ["foward","step foward"]
 go_back_list = ["go back","back"]
+move_list = ["move","move now"]
+stay_list = ["stay","stay in net","stay in the net"]
+dont_move_list = ["dont move","dont","dont move please"]
+throw_something = ["throw something","throw","get something"]
+
 print("This is inspired by Eva")
 time.sleep(1)
 ########################################################################
@@ -39,7 +45,7 @@ def art_storyline2():
     if wyd in run_list:
         weapon = random.choice(weapons_list)
         teacher = random.choice(teachers)
-        print("You run as fast as you can but sadly you trip over a rock")
+        print("You run as fast as you can but sadly you trip over a bag")
         time.sleep(1)
         stillrunning()
     while wyd not in walk_list and wyd not in run_list:
@@ -59,6 +65,7 @@ def stillrunning():
     else:
         print("Please enter a valid response")
         stillrunning()
+############################################################################
 
 def nearly_out_of_door():
     print("You find another door, but it's locked!")
@@ -69,6 +76,7 @@ def nearly_out_of_door():
     time.sleep(1)
     weapon = random.choice(weapons_list)
     teacher = random.choice(teachers)
+    pickupitem = random.choice(items_in_class)
     print("Ahhh its " +teacher+ " with a " +weapon)
     time.sleep(1)
     throw_or_hit_door = input("Do you throw something at them or do you try to hit the door open?")
@@ -82,6 +90,32 @@ def nearly_out_of_door():
             print("Oh no :( The door doesn't break and you're stuck in the class!")
             time.sleep(1)
             deathtoteacher()
+    if throw_or_hit_door in throw_something:
+        print("You pick up a "+pickupitem+" and throw it at "+teacher+"")
+        time.sleep(2)
+        ##0 = miss
+        ##1 = hits
+        ##2 = catches and throws it at u and die
+        dodge_chance = randint(0,2)
+        if dodge_chance == 0:
+            print("Your accuracy sucks and you throw it the wrong way")
+            time.sleep(1)
+            ###go thru the vent story
+        if dodge_chance == 1
+            print("You hit "+teacher+" with the"+pickupitem+"that you picked up earlier")
+            time.sleep(2)
+            print("They are bleeding, but are not dead.")
+            time.sleep(1)
+            print("This spares you some time to try and escape the classroom.")
+            vent_or_door = input("Do you go through the vent that you previously saw? Or do you try and hit the door open again?")
+            if vent_or_door in hit_door_open:
+                print("You take your chances and try and hit the door open")
+                time.sleep(1)
+                print("...")
+                time.sleep(1)
+                print("You successfully hit the door down and run!!")
+                out_of_door()
+
 
 
 def out_of_door():
@@ -102,6 +136,34 @@ def inside_the_room():
     print("While admiring this new place, you step forward and fall down a hole")
     time.sleep(2)
 #normal defs that can happena nytiem
+
+##net with 1 in 5 chance of not breaking
+def down_the_hole():
+    print("After falling for about 20 seconds, you land in a net")
+    time.sleep(1)
+    print("But if you move, the net only has a 2 in 5 chance of breaking.")
+    weapon = random.choice(weapons_list)
+    teacher = random.choice(teachers)
+    moveorstay = input("What do you do? Stay there or move?")
+    if moveorstay in dont_move_list or moveorstay in stay_list:
+        print("You stay in the net, and see "+teacher+" looking at you from above")
+        time.sleep(2)
+        print("""You scream, "Why are you here?!""")
+        time.sleep(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def deathtoteacher():
     print("You get hit, and bleed out. Tha tsucks !")
 def playagain():
