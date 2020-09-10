@@ -2,6 +2,7 @@ import time
 import random
 from random import randint
 from random import randrange
+import time, sys
 
 ##50 percent chance
 fifty_chance = randint(0,1)
@@ -26,6 +27,7 @@ move_list = ["move","move now"]
 stay_list = ["stay","stay in net","stay in the net"]
 dont_move_list = ["dont move","dont","dont move please"]
 throw_something = ["throw something","throw","get something"]
+vent_list = ["vent","Go to the vent "]
 
 print("This is inspired by Eva")
 time.sleep(1)
@@ -76,22 +78,28 @@ def nearly_out_of_door():
     time.sleep(1)
     weapon = random.choice(weapons_list)
     teacher = random.choice(teachers)
-    pickupitem = random.choice(items_in_class)
     print("Ahhh its " +teacher+ " with a " +weapon)
     time.sleep(1)
-    throw_or_hit_door = input("Do you throw something at them or do you try to hit the door open?")
+    throwhitdoor()
 
+def throwhitdoor():
+    teacher = random.choice(teachers)
+    pickupitem = random.choice(items_in_class)
+    throw_or_hit_door = input("Do you throw something at them or do you try to hit the door open?")
     if throw_or_hit_door in hit_door_open:
         print("You take your chances and try and hit the door open")
         if fifty_chance == 0:
             print("You successfully hit the door down and run!!")
+            ##run out of door code
             out_of_door()
         if fifty_chance == 1:
             print("Oh no :( The door doesn't break and you're stuck in the class!")
             time.sleep(1)
             deathtoteacher()
-    if throw_or_hit_door in throw_something:
+########################################################################################################REOCCURING THING
+    elif throw_or_hit_door in throw_something:
         print("You pick up a "+pickupitem+" and throw it at "+teacher+"")
+        ###########################
         time.sleep(2)
         ##0 = miss
         ##1 = hits
@@ -99,10 +107,13 @@ def nearly_out_of_door():
         dodge_chance = randint(0,2)
         if dodge_chance == 0:
             print("Your accuracy sucks and you throw it the wrong way")
-            time.sleep(1)
+            time.sleep(2)
+            hitdooragain()
+
             ###go thru the vent story
-        if dodge_chance == 1
+        elif dodge_chance == 1:
             print("You hit "+teacher+" with the"+pickupitem+"that you picked up earlier")
+            ###############################REOCCURING THING
             time.sleep(2)
             print("They are bleeding, but are not dead.")
             time.sleep(1)
@@ -115,6 +126,56 @@ def nearly_out_of_door():
                 time.sleep(1)
                 print("You successfully hit the door down and run!!")
                 out_of_door()
+            elif vent_or_door in vent_list:
+                print("You run to the vent, and grab a ladder")
+                waiting_animated()
+                print(teacher+" tries to grab you, but you kick them in the face")
+                waiting_animated()
+                print("They bleed out and die!")
+                time.sleep(1)
+                print("You open the vent, and crawl in")
+                waiting_animated()
+                the_vent()
+            elif dodge_chance == 2:
+                print("shart")
+    else:
+        valid_response()
+
+##################################################################################################
+def hitdooragain():
+    teacher = random.choice(teachers)
+    pickupitem = random.choice(items_in_class)
+    throw_or_hit_door = input("Do you throw try to hit the door open again?")
+    if throw_or_hit_door in hit_door_open:
+        print("You take your chances and try and hit the door open")
+        if fifty_chance == 0:
+            print("You successfully hit the door down and run!!")
+            ##run out of door code
+            out_of_door()
+        if fifty_chance == 1:
+            print("Oh no :( The door doesn't break and you're stuck in the class!")
+            time.sleep(1)
+            deathtoteacher()
+##################################################################################################
+
+
+def the_vent():
+    print("You enter the vent")
+
+def valid_response():
+    print("Please enter a valid response.")
+
+def waiting_animated():
+    for i in range(9):
+        time.sleep(0.2)
+        x = i % 2
+        sys.stdout.write("." * x)
+        sys.stdout.flush()
+
+
+
+
+
 
 
 
@@ -150,19 +211,6 @@ def down_the_hole():
         time.sleep(2)
         print("""You scream, "Why are you here?!""")
         time.sleep(1)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 def deathtoteacher():
     print("You get hit, and bleed out. Tha tsucks !")
