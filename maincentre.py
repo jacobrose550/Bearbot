@@ -5,6 +5,8 @@ from chatterbot.logic import LogicAdapter
 from chatterbot import filters
 import time
 import random
+import gamestory
+import paperscissorsrockgame
 game_list = ["game","I want to play a game","i want play game","i want game play"]
 paperscissorsrock = ["paper scissors rock"]
 horror_story = ["horror story","game story"]
@@ -62,8 +64,8 @@ def bearbot():
         print('Bot: ', response)
 
         if input in game_list:
-            import paperscissorsrock
-            paperscissorsrock.game()
+            import paperscissorsrockgame
+            paperscissorsrockgame.game()
 
 def chatterbot():
     import chatterbot
@@ -100,21 +102,26 @@ def chatterbot():
 
 bearbot_list = ["bearbot", "Bearbot"]
 
-chatterbot_list = [""]
+chatterbot_list = ["chatterbot","Chatterbot"]
 
 
 ####FIX THIS LATER
 choice = input("Would you like to talk to Bearbot, Chatterbot or play a Game? Bearbot is designed to have semi-realistic conversations while chatterbot has alot more responses but is unrealistic.")
 if choice in bearbot_list:
     bearbot()
-
-else:
+elif choice in chatterbot_list:
     chatterbot()
-
-if choice in game_list:
+elif choice in game_list:
     whatgame = input("What game would you like to play? Paper, scissors, rock, or a horror story game?")
     whatgame.split(" ")
-    if whatgame
+    if whatgame in horror_story:
+        gamestory
+    elif whatgame in paperscissorsrock:
+        paperscissorsrockgame
+    else:
+        print("Please enter a valid response")
+
+
 
 
 
