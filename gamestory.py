@@ -19,7 +19,7 @@ run_list = ["Run","run"]
 walk_list = ["walk","Walk"]
 rocktrip_finddoor = ["go back","Go Back","go Back","Go Back","GO BACK","find another door","find door","Find Door","find Door","Find Door","FIND DOOR","door","Door","find a door"]
 rocktrip_keeprunning = ["keep running","Keep running","keep Running","Keep Running","KEEP RUNNING"]
-hit_door_open = ["hit","Door","Hit","door","hit door open","hit the door open",]
+hit_door_open = ["hit","Door","Hit","door","hit door open","hit the door open","hit door"]
 subjects = ["art","english","digital science"]
 foward_list = ["foward","step foward"]
 go_back_list = ["go back","back"]
@@ -88,8 +88,10 @@ def throwhitdoor():
     throw_or_hit_door = input("Do you throw something at them or do you try to hit the door open?")
     if throw_or_hit_door in hit_door_open:
         print("You take your chances and try and hit the door open")
+        time.sleep(2)
         if fifty_chance == 0:
             print("You successfully hit the door down and run!!")
+            time.sleep(1)
             ##run out of door code
             out_of_door()
         if fifty_chance == 1:
@@ -112,7 +114,7 @@ def throwhitdoor():
 
             ###go thru the vent story
         elif dodge_chance == 1:
-            print("You hit "+teacher+" with the"+pickupitem+"that you picked up earlier")
+            print("You hit "+teacher+" with the "+pickupitem+" that you picked up earlier")
             ###############################REOCCURING THING
             time.sleep(2)
             print("They are bleeding, but are not dead.")
@@ -138,6 +140,8 @@ def throwhitdoor():
                 the_vent()
             elif dodge_chance == 2:
                 print("shart")
+            else:
+                valid_response()
     else:
         valid_response()
 
@@ -213,13 +217,20 @@ def down_the_hole():
         time.sleep(1)
 
 def deathtoteacher():
-    print("You get hit, and bleed out. Tha tsucks !")
+    print("You get hit, and bleed out.")
 def playagain():
-    play = input("Would you like to play again?")
+        print("Would you like to play again?")
+        playagain2()
+
+def playagain2():
+    play=input("")
     if play in yes_list:
         art_storyline()
-    else:
+    if play in no_list:
         print("Thanks for playing!")
+    else:
+        print("Please enter a valid response.")
+        playagain2()
 
 
 
