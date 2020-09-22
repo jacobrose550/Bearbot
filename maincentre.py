@@ -63,10 +63,6 @@ def bearbot():
 
         print('Bot: ', response)
 
-        if input in game_list:
-            import paperscissorsrockgame
-            paperscissorsrockgame.game()
-
 def chatterbot():
     import chatterbot
     from chatterbot.trainers import ChatterBotCorpusTrainer
