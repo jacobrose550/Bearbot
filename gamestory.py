@@ -13,7 +13,7 @@ items_in_class = ["Computer","Ladder","Printer"]
 yes_list = ["yes","Yes","Ye","ye","y","Y"]
 no_list = ["no","No","N","n"]
 teachers = ["Mr. Walker","Mr Wilson","Mr Simpson","Mr Macown"]
-weapons_list = ["Bat","Knife","Hammer","Boulder","Rock","Jesus"]
+weapons_list = ["Bat","Knife","Hammer","Boulder","Rock",]
 animals = ["Pig","Rat","Sheep","Snake","Chicken",]
 run_list = ["Run","run"]
 walk_list = ["walk","Walk"]
@@ -38,8 +38,10 @@ def art_storyline():
     art_storyline2()
 def art_storyline2():
     global wyd
+    time.sleep(1)
     wyd = input("Do you run or walk?")
     if wyd in walk_list:
+        time.sleep(1)
         weapon = random.choice(weapons_list)
         teacher = random.choice(teachers)
         print("You walk outside the class, but you're hit by " +teacher+ " with a "+ weapon)
@@ -70,10 +72,12 @@ def stillrunning():
 ############################################################################
 
 def nearly_out_of_door():
+    time.sleep(1)
     print("You find another door, but it's locked!")
     time.sleep(1)
     print("You hear a weird noise coming from afar...")
     #playsound
+    time.sleep(1)
     print("What was that?? ")
     time.sleep(1)
     weapon = random.choice(weapons_list)
@@ -100,7 +104,7 @@ def throwhitdoor():
             deathtoteacher()
 ########################################################################################################REOCCURING THING
     elif throw_or_hit_door in throw_something:
-        print("You pick up a "+pickupitem+" and throw it at "+teacher+"")
+        print("You pick up a "+pickupitem+" and throw it at them")
         ###########################
         time.sleep(2)
         ##0 = miss
@@ -140,23 +144,24 @@ def throwhitdoor():
                 the_vent()
             elif dodge_chance == 2:
                 print("shart")
-            else:
-                valid_response()
     else:
         valid_response()
+
 
 ##################################################################################################
 def hitdooragain():
     teacher = random.choice(teachers)
     pickupitem = random.choice(items_in_class)
-    throw_or_hit_door = input("Do you throw try to hit the door open again?")
+    throw_or_hit_door = input("Do you throw or try to hit the door open again?")
     if throw_or_hit_door in hit_door_open:
         print("You take your chances and try and hit the door open")
         if fifty_chance == 0:
+            time.sleep(1)
             print("You successfully hit the door down and run!!")
             ##run out of door code
             out_of_door()
         if fifty_chance == 1:
+            time.sleep(1)
             print("Oh no :( The door doesn't break and you're stuck in the class!")
             time.sleep(1)
             deathtoteacher()
@@ -185,11 +190,13 @@ def waiting_animated():
 
 def out_of_door():
     print("You think to yourself, Wow! This is such a nice place!")
-    time.sleep(1)
+    time.sleep(2)
     step_foward = input("Do you step foward to see more?")
     if step_foward in yes_list or step_foward in foward_list:
+        time.sleep(1)
         inside_the_room()
     elif step_foward in no_list or step_foward in go_back_list:
+        time.sleep(1)
         print("You get pushed into the room by a mysterious figure...")
         inside_the_room()
 
@@ -198,8 +205,10 @@ def inside_the_room():
     print("It's surrounded by water and plants you've never seen before...")
     time.sleep(1)
     ##make first person color text different
-    print("While admiring this new place, you step forward and fall down a hole")
+    print("While admiring this new place, you step forward and fall down a hole...")
     time.sleep(2)
+    down_the_hole()
+
 #normal defs that can happena nytiem
 
 ##net with 1 in 5 chance of not breaking
@@ -215,9 +224,11 @@ def down_the_hole():
         time.sleep(2)
         print("""You scream, "Why are you here?!""")
         time.sleep(1)
+        not_finished()
 
 def deathtoteacher():
     print("You get hit, and bleed out.")
+    playagain()
 def playagain():
         print("Would you like to play again?")
         playagain2()
@@ -237,6 +248,8 @@ def playagain2():
 
 ##def the art storyline.
 
+def not_finished():
+    print("This part of the story isn't finished yet, but thank you for playing!")
 
 ####run the code
 art_storyline()
