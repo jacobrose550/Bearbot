@@ -2,7 +2,8 @@ import time
 import random
 from random import randint
 from random import randrange
-import time, sys
+import time, os
+import sys
 
 ##50 percent chance
 fifty_chance = randint(0,1)
@@ -34,8 +35,9 @@ time.sleep(1)
 ########################################################################
 def art_storyline():
     global wyd
-    print("You are about to leave art class, but the moon suddenly rises and it's night.")
+    print("You are about to leave your class, but the moon suddenly rises and it's night.")
     art_storyline2()
+
 def art_storyline2():
     global wyd
     time.sleep(1)
@@ -110,7 +112,7 @@ def throwhitdoor():
         ##0 = miss
         ##1 = hits
         ##2 = catches and throws it at u and die
-        dodge_chance = randint(0,2)
+        dodge_chance = randint(0,1)
         if dodge_chance == 0:
             print("Your accuracy sucks and you throw it the wrong way")
             time.sleep(2)
@@ -253,3 +255,4 @@ def not_finished():
 
 ####run the code
 art_storyline()
+
