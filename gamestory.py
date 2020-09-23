@@ -33,10 +33,12 @@ dont_move_list = ["dont move","dont","dont move please"]
 throw_something = ["throw something","throw","get something"]
 vent_list = ["vent","Go to the vent "]
 enter_vent = ["enter vent","enter the vent","go in the vent","go into the vent","go vent","vent"]
+play_again_list = ["play again","again","play again please"]
 
 print("This is inspired by Eva")
 time.sleep(1)
 print("Please use lower cases while entering your response.")
+time.sleep(1)
 ########################################################################
 def art_storyline():
     global wyd
@@ -305,7 +307,7 @@ def playagain():
 
 def playagain2():
     play=input("")
-    if play in yes_list:
+    if play in yes_list or play in play_again_list:
         art_storyline()
     if play in no_list:
         print("Thanks for playing!")
