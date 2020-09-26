@@ -15,8 +15,10 @@ def ageask():
     age = int(input("How old are you? Please answer in digits."))
     if age == str:
         print("Please answer in digits...")
+        ageask()
     if age == no_list:
         print("It is needed for future development.")
+        ageask()
 
 #name and age
 name = input("What is your name?").capitalize()
