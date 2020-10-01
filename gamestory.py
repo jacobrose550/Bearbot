@@ -181,6 +181,7 @@ def hitdooragain():
     teacher = random.choice(teachers)
     pickupitem = random.choice(items_in_class)
     print("Do you throw something or try to hit the door open again?")
+    throworhit()
 def throworhit():
     throw_or_hit_door = input("")
     if throw_or_hit_door in hit_door_open:
