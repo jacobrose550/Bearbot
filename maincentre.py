@@ -3,7 +3,6 @@ game_list = ["game","I want to play a game","i want play game","i want game play
 paperscissorsrock = ["paper scissors rock","psr"]
 horror_story = ["horror story","game story","horror game","horror","horror story game"]
 bearbot_list = ["bearbot", "Bearbot"]
-chatterbot_list = ["chatterbot","Chatterbot"]
 quit_list = ["quit","quit code","quit all code","end code"]
 back_list = ["back","go back"]
 
