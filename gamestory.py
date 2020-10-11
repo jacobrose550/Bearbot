@@ -190,7 +190,7 @@ def throworhit():
             time.sleep(1)
             print("You successfully hit the door down and run!!")
             ##run out of door code
-            time.slepe(1)
+            time.sleep(1)
             out_of_door()
         elif fifty_chance == 1:
             time.sleep(1)
