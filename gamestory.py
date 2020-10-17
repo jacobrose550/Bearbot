@@ -9,7 +9,7 @@ fifty_chance = randint(0, 1)
 ##33 percent chance
 thirty_chance = randint(0, 2)
 # lists
-main_centre_list = ["main centre","go back to main centre","selection","go back to selection"]
+main_centre_list = ["main centre","go back to main centre","selection","go back to selection","main selection","go back to the main selection"]
 items_in_class = ["Computer", "Ladder", "Printer"]
 yes_list = ["yes", "Yes", "Ye", "ye", "y", "Y"]
 no_list = ["no", "No", "N", "n"]
@@ -63,17 +63,16 @@ def art_storyline3():
         print("You walk outside the class, but you're hit by " + teacher + " with a " + weapon)
         time.sleep(2)
         playagain()
-    if wyd in run_list:
+    elif wyd in run_list:
         time.sleep(1)
         weapon = random.choice(weapons_list)
         teacher = random.choice(teachers)
         print("You run as fast as you can but sadly you trip over a bag")
         time.sleep(1)
         stillrunning()
-    while wyd not in walk_list and wyd not in run_list:
-        print("Please enter a valid response")
+    else:
+        valid_response()
         art_storyline3()
-
 
 ############################################################################
 
