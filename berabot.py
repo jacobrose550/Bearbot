@@ -4,6 +4,7 @@ from chatterbot import ChatBot # import the chatbot
 from chatterbot import logic
 import time
 import random
+import sys, os
 
 #lists innit
 #first run
@@ -19,6 +20,9 @@ time.sleep(1)
 
 #letting user know to talk in lowercase
 print("Please use lowercases while talking. This helps Bearbot understand what you are talking about.")
+time.sleep(2)
+print("Some responses may be odd, or Bearbot may not understand as many responses haven't been made.")
+time.sleep(3)
 
 chatbot = ChatBot('Bearbot') # create the chatbot
 
@@ -38,7 +42,7 @@ while True:
         print('Bot: ', response)
     elif response.confidence < 0.80:
         print("Bot: I dont quite understand...")
-
-    if request in quit_list:
+## prints response and then the print (not sure why that happens)
+    elif request in quit_list:
         print("Bot: Aww okay, byee")
         quit()
